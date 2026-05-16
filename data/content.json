@@ -1,47 +1,100 @@
 {
-  "businessName": "Sample Business",
-  "tagline": "Quality Service You Can Trust",
+  "businessName": "Philly On The Block",
+  "tagline": "East-coast cheesesteaks. West-coast Burbank.",
   "hero": {
-    "heading": "Welcome to Our Business",
-    "subheading": "Professional service in your area.",
-    "ctaText": "Contact Us",
-    "ctaLink": "#contact"
+    "heading": "Cheesesteaks done the Philly way.",
+    "subheading": "Thin-sliced ribeye, gooey provolone, hoagie rolls that mean it. Pulled straight outta South Philly to the corner of Victory Blvd.",
+    "ctaText": "Order: (818) 406-6053",
+    "ctaLink": "tel:8184066053",
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFJCOACQRWZ3JB_NFxtABMClCTrWjS-eIQNt6IoVX12rTVlEPEUdAVaFst6O4vPa8tDjgxe2HURji_ZEmjNlDDgZUWQHwM1yUEcZ7aSq2Kl0DFVehoEnZw47fkhJ8CRrlVOlNYlcIHm5uLm=w1920-h1080-k-no"
   },
   "about": {
-    "heading": "About Us",
+    "heading": "59 reviews. 4.8 stars. The closest thing to Pat's on the west coast.",
     "paragraphs": [
-      "We are a local business dedicated to providing quality service.",
-      "Our team has years of experience and we take pride in our work."
+      "Philly On The Block is run by a born-and-raised Philly native who got tired of bad cheesesteaks in LA. We use real Amoroso-style rolls, ribeye sliced fresh, and we don't skimp on the cheese.",
+      "Walk up, order at the window, grab a folding chair on the patio. We're open Tuesday through Sunday and we run out when we run out."
     ]
   },
   "services": [
-    { "title": "Service One", "description": "Professional service with attention to detail.", "icon": "star" },
-    { "title": "Service Two", "description": "Quality work at competitive prices.", "icon": "award" },
-    { "title": "Service Three", "description": "Fast, reliable, and thorough.", "icon": "check" }
+    {
+      "title": "Classic Cheesesteak",
+      "description": "Thin-sliced ribeye, sautéed onions, melted provolone on an Amoroso-style hoagie. The signature.",
+      "price": "$13"
+    },
+    {
+      "title": "Whiz Wit",
+      "description": "The classic, with Cheez Whiz and grilled onions — exactly how they make it in Philly.",
+      "price": "$13"
+    },
+    {
+      "title": "Chicken Cheesesteak",
+      "description": "Same beautiful sandwich, marinated chicken instead. Add peppers for $2.",
+      "price": "$12"
+    },
+    {
+      "title": "Philly Combo",
+      "description": "Cheesesteak + house-cut fries + a drink. The full deal.",
+      "price": "$18"
+    },
+    {
+      "title": "Hoagie",
+      "description": "Italian-style cold hoagie — capicola, mortadella, salami, provolone, lettuce, tomato, oil & vin.",
+      "price": "$11"
+    },
+    {
+      "title": "Loaded Fries",
+      "description": "House-cut fries topped with steak, cheese, and onions. Eat with two hands.",
+      "price": "$10"
+    }
+  ],
+  "reviews": [
+    {
+      "name": "Joey D.",
+      "text": "Born in South Philly. This is the real thing. The roll is right, the meat is right, the wiz is on point. Cried a little.",
+      "rating": 5
+    },
+    {
+      "name": "Lisa K.",
+      "text": "Easily my favorite sandwich in Burbank. Crew is super friendly, sandwiches are massive, prices are fair.",
+      "rating": 5
+    },
+    {
+      "name": "Anthony R.",
+      "text": "Whiz wit, fries, root beer. Tasted like home. Will be back constantly.",
+      "rating": 5
+    }
   ],
   "contact": {
-    "address": "123 Main St, City, ST 12345",
-    "phone": "(555) 123-4567",
-    "email": "info@sample.com",
+    "phone": "(818) 406-6053",
+    "email": "yo@phillyontheblock.com",
+    "address": "2600 W Victory Blvd, Burbank, CA",
+    "mapEmbedQuery": "Philly On The Block, 2600 W Victory Blvd, Burbank, CA",
     "hours": {
-      "Monday": "9:00 AM - 5:00 PM",
-      "Tuesday": "9:00 AM - 5:00 PM",
-      "Wednesday": "9:00 AM - 5:00 PM",
-      "Thursday": "9:00 AM - 5:00 PM",
-      "Friday": "9:00 AM - 5:00 PM",
-      "Saturday": "10:00 AM - 3:00 PM",
-      "Sunday": "Closed"
-    },
-    "mapEmbedQuery": "123+Main+St+City+ST"
+      "Monday": "Closed",
+      "Tuesday": "12 PM – 9 PM",
+      "Wednesday": "12 PM – 9 PM",
+      "Thursday": "12 PM – 9 PM",
+      "Friday": "12 PM – 9 PM",
+      "Saturday": "4 PM – 11 PM",
+      "Sunday": "4 PM – 11 PM"
+    }
   },
   "seo": {
-    "title": "Sample Business | City, ST",
-    "description": "Sample Business in City, ST. Professional services you can trust.",
-    "keywords": ["sample business", "city ST", "professional services"]
+    "title": "Philly On The Block — Authentic Philly Cheesesteaks in Burbank, CA",
+    "description": "Real Philly cheesesteaks in Burbank — Amoroso-style rolls, ribeye, wiz wit. Tuesday–Sunday, 2600 W Victory Blvd. Call (818) 406-6053.",
+    "keywords": [
+      "philly cheesesteak burbank",
+      "cheesesteak burbank",
+      "philly on the block",
+      "burbank sandwich shop",
+      "best cheesesteak los angeles",
+      "hoagie burbank"
+    ]
   },
   "theme": {
-    "primaryColor": "#0a0a0a",
-    "accentColor": "#c8a97e",
-    "fontFamily": "modern"
-  }
+    "primaryColor": "#E63946",
+    "accentColor": "#F4C430",
+    "fontFamily": "outfit"
+  },
+  "social": {}
 }
