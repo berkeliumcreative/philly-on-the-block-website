@@ -18,6 +18,9 @@ const SUN = "#FFD23F";
 const INK = "#3D2818";
 const TEXT_SOFT = "#7A5A48";
 
+
+const GALLERY = ["https://lh3.googleusercontent.com/gps-cs-s/APNQkAFJCOACQRWZ3JB_NFxtABMClCTrWjS-eIQNt6IoVX12rTVlEPEUdAVaFst6O4vPa8tDjgxe2HURji_ZEmjNlDDgZUWQHwM1yUEcZ7aSq2Kl0DFVehoEnZw47fkhJ8CRrlVOlNYlcIHm5uLm=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGK8Hl2pY4td8QdqUFEvHas-iRWMpxkZJWRO8tgPZV6_0Y7fVs0Qtm4yWaobKXXagmY7tQtAxMPn2VYJF61ph63rcpeKC9-1Cs8Ivui3-xnc5TafcKOlxoocrkREWY1RzgJ_zqWPS7wong=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEIa5LHwnk1jnsikGYhWFJEtbjaCpi5rKfmH6ywITD0VbVJy1T09nbQcH-kIRqaZHbVhgOqq6x-VOhMSWzhqkvaxKGiQjawfpN6rBk7qBZMksnbsBHC7kcMyha0BihY9GdVdvawQ01i6SM=w1920-h1080-k-no","https://lh3.googleusercontent.com/proxy/2N8ilMHICrXUHjKg6_0dMiFu2iM5HFWu12klOeBWWPOQoBhl5yoaBe6GljJX6Z6JAwyFZo3Hab8Q2ghdxLViGE9CGWoaPl0TZEiyd8ZcwiZh0WmF_WjrPSJKyYXsQt1ZffNdWe1HWeepUKxu2XlE2lDpdAMOvCA=w1920-h1080-k-no","https://lh4.googleusercontent.com/proxy/4S9JaIhFKUB61OU3GvxUx79EoqTAwO_gUvNOJeyKaYzlbdw1gDJlrmGeGPozLzsOlBgZjyctH0Ri8v3mYPw2RgUyLIy2cg09AZBGssJ-p8XAl3X6kEu3z8aOZlYAS6ExtLNL_odVgsLnRw8AQf8cttNcKGh98PQ=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHSqpe5QlXDE04xOZEfTBnTAj5Cm0QHSkC4a8S5-FS-1yH0PbXhBQSrHBW-w9hADDNxeCKG8hQ2oN2LZhrK79nk0RRiv51pu92-JM-i8Ch9egGxx4kHWQXmd3--ii26D5lHljRY=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHMJUJ7V_Q5XAyqPpO1dHA0EZNNwmbgOwdrhwG6d7Sr5dWS2rFffOQWKg5R_Q5xwe1TjS-G-AHZSALcFQVMqtN53AC4SBhCH6KrduGCxQ76FJP-1QJnEXCFSTN9EKOKtjrJqK-YrDzfla13=w1920-h1080-k-no","https://lh4.googleusercontent.com/proxy/e05g5oe88ERqW1VQPUyRU1cOPWNiLAkmqlHcmXuBe6BqYM3FrvA9-emHyYYyobngBu4oxbsWRJnZG_IlJgADAio532HVss-K5hwNCtZnHbGjHm8O0TAeHDknnsTOWGo-kc_BXL81k3QjW5dgSUeBt8sbwQQvwQ=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFV35g3tu9M53y-QIl_ZLrDsS6_lAyN7bOuTBTawh7ykmNQxjDFFtw7pjze00PB2Jlbm6eNhHceYumBR5Peojo-w0KbfeZd6W9dLIEDasf2Wq7ollVgiUxgqQcz6b392WBT1WV-AEQzXvI=w1920-h1080-k-no","https://lh5.googleusercontent.com/proxy/e0gDlBxhCyC33zcCmwQHV7LMdbSbh5-7lp_oI_VWwOq98z6yMShasgxFnRkKb-ItzQHcRlL2KHAZOy8yR7I8FxaYrbzXt9TeNHJVnYwi58kQeGu3qtiezYyDK_7qhDjRii7l3ziZni6Ph2yV-amMxO2qv86aTXI=w1920-h1080-k-no","https://lh4.googleusercontent.com/proxy/WBsBpUG6JwstBlFH710SSQldk3Xs9Z2cIdoiqaGjjvWnKDV-5FoV2ZUICDM26GTEv8W5o37Tfhn-y-WRrCC6SlgmP8V_P4YZZAyuhHObUyLEGAqwzxkhyadHWMF6n1A7-4cxPkPQQSoPBH7m5nSywAf0S4qhqA=w1920-h1080-k-no","https://lh5.googleusercontent.com/proxy/kkA8tnQhi2U8CVuVqj6K33oGYfP6BqZgt1zL67-B5t06mlNCxuSYyHiAU-xByZsAhQ25j6UL0qaUHIBbnzKvsVbS5-fvVbCp9VjxoPr8qdrg3mlP99zjVtitV4m6VH2O29PsClQlDZJv4uEF59hizutt1_XYXAc=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGfFWomonPL6Nvr5Ff4Lu3_ipCiuSecl9t3eXTYhM10rTpk0jjahpt_4YQfjTrGB2bBUqCoLnn99aQ8hLYDWutvW74Dc03HLY6ZTjAxWE5UqzvEXFviOR1yRkYvz3T-eZJcrcpD-MNEvuy6=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGMCNcIQbi6qXXViKyPLFfiblmuC68jb8yUbrCW-LNUPwORK4uTqTZVBqvwRA_cCe-c__62O6VOeNi2PTsnNNEFFqbOUvurbxfX_rHYR-IZwW5IvkUcQ5wArFyK2MKbQfTp5BU4bzG9P3-z=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHBx_JN2jwpuf_VFwEEh9JbzwzngGuegNxjDQ2G1aXHnL4c3NuTcXSPwwIgi4DA5jbkylhJFXrYvL64yGytt_dLHIBum1mDCYgGAPqJv3crjjnxcakC2F4gwTw-55r0LHgAjeyM=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGfXPyKPiwXXis-qhzqF8I6a_s8nh4uZC7PeK2GsPzZ95a3SnxYD6CLUYOdZ-i_nzlP50be1zktfVZ9kKcA07AV_Z3Y5hWf8b811QkJKXHOo54mkgK8ADw8IzSsFOOBqatAP9Ghs6wFJKU=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFK0aGiQWk7RnZqcpjttQAsODNZ5oedeXBpBT7EojvCRa8667NQTheefCTeNr4NnWx8-xf62UWlyGrLmDDH3kRJ_3punwMTk36meIYySv8PlXjO6LcwBQQXCn4bEbqM_pz_TGgVgw=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG1hxuH8zXE00qnFY2tZruYCxdBgwVmFvQtkmf_QPnEtKUJTIhZb43O6qrehlDbRDxEsjPhXk3sUSpo-51TShY0J2khAQSbWZ2l6btss6-ZkFakxpKi7d7vZzYDwZHFjVXtHZXJ=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFOai0l_RNGNHQ4e62M3lq3MRrnyPMfldQUPX8DkxYLlMDzMAKiqNo7W3_fxr5j4ml1Mv_fRR7-yyW0Law-MOtUz9Ru1jkzVx_gryg18pcwKBsUdX8S9V0WnT-Ws8WUTWRcDlA8fmZLhFI=w1920-h1080-k-no","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGretRIW2CvY9mRaLCltNlfApwcXSYJv0xKhf1yFRY3HWs7o1TQ2V8G8u_K3p-3Dvos5wAcXQ4HX3R8Iu0sXsa0atzFovGHxvyagj-2P5KGkmgb-rejAmEUBkNs41p5v2H1KJQbqtFpqFQx=w1920-h1080-k-no"];
+
 export default function Page() {
   const phoneTel = "tel:" + content.contact.phone.replace(/[^0-9]/g, "");
   const mapUrl = "https://maps.google.com/maps?output=embed&q=" + encodeURIComponent(content.contact.mapEmbedQuery);
@@ -128,6 +131,19 @@ export default function Page() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* CHEESESTEAK GALLERY — claymorphic photo blocks */}
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div className="text-center mb-14">
+          <p className={display.className} style={{ fontSize: "1rem", color: PINK_DEEP, letterSpacing: "0.3em" }}>★ THE GOODS ★</p>
+          <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: INK, lineHeight: 0.95, letterSpacing: "0.01em", marginTop: "1rem" }}>STRAIGHT OUTTA<br />THE GRILL.</h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-7">
+          {GALLERY.slice(0, 6).map((p, i) => (
+            <div key={i} className="clay aspect-square bg-cover bg-center" style={{ backgroundImage: `url("${p}")`, borderRadius: "36px" }} />
+          ))}
         </div>
       </section>
 
