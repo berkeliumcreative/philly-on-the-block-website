@@ -141,7 +141,7 @@ export default function Page() {
           <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: INK, lineHeight: 0.95, letterSpacing: "0.01em", marginTop: "1rem" }}>STRAIGHT OUTTA<br />THE GRILL.</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-7">
-          {GALLERY.slice(0, 6).map((p, i) => (
+          {GALLERY.slice(0, 20).map((p, i) => (
             <div key={i} className="clay aspect-square bg-cover bg-center" style={{ backgroundImage: `url("${p}")`, borderRadius: "36px" }} />
           ))}
         </div>
