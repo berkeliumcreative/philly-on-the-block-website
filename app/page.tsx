@@ -1,165 +1,191 @@
 // @ts-nocheck
 "use client";
 
-import { Anton, Inter } from "next/font/google";
+import { Righteous, Poppins } from "next/font/google";
 import content from "../data/content.json";
 
-const display = Anton({ subsets: ["latin"], weight: ["400"] });
-const body = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const display = Righteous({ subsets: ["latin"], weight: ["400"] });
+const body = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
 
-const RED = "#E63946";
-const RED_DEEP = "#9B1F2A";
-const YELLOW = "#F4C430";
-const CREAM = "#FFF8E7";
-const TEXT = "#1A1A1A";
-const TEXT_MUTED = "#5C5C5C";
+// Claymorphism — soft 3D rounded surfaces with natural green + floral pink + cheesesteak warm tones
+const CLAY_BG = "#FFEFE6";
+const CLAY_BG_DEEP = "#FFD9C0";
+const SAGE = "#9DC88D";
+const SAGE_DEEP = "#5F8B4F";
+const PINK = "#FF8FA8";
+const PINK_DEEP = "#E0466B";
+const SUN = "#FFD23F";
+const INK = "#3D2818";
+const TEXT_SOFT = "#7A5A48";
 
 export default function Page() {
   const phoneTel = "tel:" + content.contact.phone.replace(/[^0-9]/g, "");
-  const mapUrl =
-    "https://maps.google.com/maps?output=embed&q=" +
-    encodeURIComponent(content.contact.mapEmbedQuery);
+  const mapUrl = "https://maps.google.com/maps?output=embed&q=" + encodeURIComponent(content.contact.mapEmbedQuery);
 
   return (
-    <main className={body.className} style={{ backgroundColor: CREAM, color: TEXT, minHeight: "100vh" }}>
+    <main className={body.className} style={{ backgroundColor: CLAY_BG, color: INK, minHeight: "100vh" }}>
       <style jsx global>{`
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes wiggle { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
-        .fade-up { animation: fadeUp 0.7s ease-out forwards; }
-        .fade-up-d1 { animation: fadeUp 0.7s 0.15s ease-out both; }
-        .fade-up-d2 { animation: fadeUp 0.7s 0.3s ease-out both; }
-        .wiggle { animation: wiggle 0.5s ease-in-out; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes bounceIn { from { opacity: 0; transform: scale(0.8) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .bounce-in { animation: bounceIn 0.85s cubic-bezier(.34,1.56,.64,1) forwards; }
+        .bounce-in-d1 { animation: bounceIn 0.85s 0.15s cubic-bezier(.34,1.56,.64,1) both; }
+        .bounce-in-d2 { animation: bounceIn 0.85s 0.3s cubic-bezier(.34,1.56,.64,1) both; }
+        .float { animation: float 4s ease-in-out infinite; }
+        .clay {
+          box-shadow: 16px 16px 32px ${INK}1A, -8px -8px 20px #ffffff;
+          transition: transform 350ms cubic-bezier(.34,1.56,.64,1), box-shadow 350ms;
+        }
+        .clay:hover { transform: translateY(-6px); box-shadow: 20px 20px 40px ${INK}2A, -10px -10px 24px #ffffff; }
+        .clay-sm {
+          box-shadow: 8px 8px 18px ${INK}14, -4px -4px 10px #ffffff;
+          transition: transform 250ms cubic-bezier(.34,1.56,.64,1);
+        }
+        .clay-sm:hover { transform: scale(1.04); }
+        .clay-inset {
+          box-shadow: inset 6px 6px 14px ${INK}18, inset -4px -4px 10px #ffffff;
+        }
+        .clay-btn {
+          box-shadow: 8px 8px 20px ${INK}22, inset 0 -3px 0 ${INK}11, inset 0 2px 0 #ffffff77;
+          transition: all 200ms;
+        }
+        .clay-btn:active { transform: translate(2px,2px); box-shadow: 4px 4px 12px ${INK}22; }
       `}</style>
 
-      <nav className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: RED, borderBottom: `4px solid ${YELLOW}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className={display.className} style={{ fontSize: "1.6rem", color: CREAM, letterSpacing: "0.04em" }}>
-            PHILLY <span style={{ color: YELLOW }}>ON THE BLOCK</span>
+      <nav className="sticky top-0 z-50" style={{ backgroundColor: CLAY_BG + "DD", backdropFilter: "blur(20px)" }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
+          <span className={display.className} style={{ fontSize: "1.6rem", color: PINK_DEEP, letterSpacing: "0.04em" }}>
+            PHILLY ON <span style={{ color: SAGE_DEEP }}>THE BLOCK</span>
           </span>
-          <a href={phoneTel} className={display.className + " px-5 py-2 text-base transition-transform hover:scale-105"} style={{ backgroundColor: YELLOW, color: TEXT, borderRadius: "4px", letterSpacing: "0.04em" }}>
-            CALL US
-          </a>
+          <a href={phoneTel} className="clay-btn px-6 py-3 text-sm font-bold tracking-wider" style={{ backgroundColor: PINK_DEEP, color: "#fff", borderRadius: "999px" }}>ORDER ☎</a>
         </div>
       </nav>
 
-      <section className="relative pt-24 pb-12 md:pt-32 overflow-hidden" style={{ backgroundColor: RED }}>
-        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `url("${content.hero.image}")`, backgroundSize: "cover", backgroundPosition: "center" }} />
-        <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at top, transparent 0%, ${RED} 75%)` }} />
-        <div className="relative max-w-6xl mx-auto px-6 z-10 text-center fade-up">
-          <div className="inline-block px-5 py-2 mb-6 transform rotate-[-2deg]" style={{ backgroundColor: YELLOW, color: TEXT }}>
-            <span className={display.className} style={{ fontSize: "1rem", letterSpacing: "0.05em" }}>⭐ 4.8 / 5 • 59 RAVE REVIEWS</span>
+      {/* HERO — soft floaty portfolio-grid feel */}
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden">
+        <div className="absolute top-10 -left-20 w-80 h-80 rounded-full opacity-50" style={{ backgroundColor: SUN, filter: "blur(60px)" }} />
+        <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full opacity-50" style={{ backgroundColor: PINK, filter: "blur(60px)" }} />
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
+          <div className="md:col-span-7 bounce-in">
+            <div className="clay-sm inline-block px-5 py-2 mb-7" style={{ backgroundColor: SUN, borderRadius: "999px" }}>
+              <span className={display.className} style={{ fontSize: "0.85rem", color: INK, letterSpacing: "0.06em" }}>★ 4.8 · 59 RAVES · BURBANK</span>
+            </div>
+            <h1 className={display.className} style={{ fontSize: "clamp(3rem, 9vw, 7rem)", color: INK, lineHeight: 0.9, letterSpacing: "0.01em" }}>
+              CHEESE.<br /><span style={{ color: PINK_DEEP }}>STEAKS.</span><br /><span style={{ color: SAGE_DEEP }}>DONE RIGHT.</span>
+            </h1>
+            <p className="mt-8 text-xl max-w-md bounce-in-d1" style={{ color: TEXT_SOFT, lineHeight: 1.5, fontWeight: 500 }}>{content.hero.subheading}</p>
+            <div className="mt-9 flex flex-wrap gap-4 bounce-in-d2">
+              <a href={content.hero.ctaLink} className={display.className + " clay-btn px-9 py-5 text-base tracking-wider"} style={{ backgroundColor: PINK_DEEP, color: "#fff", borderRadius: "999px", letterSpacing: "0.06em" }}>{content.hero.ctaText}</a>
+              <a href="#menu" className={display.className + " clay-btn px-9 py-5 text-base tracking-wider"} style={{ backgroundColor: CLAY_BG, color: INK, borderRadius: "999px", letterSpacing: "0.06em" }}>SEE THE MENU</a>
+            </div>
           </div>
-          <h1 className={display.className} style={{ fontSize: "clamp(3rem, 11vw, 8rem)", color: CREAM, lineHeight: 0.9, letterSpacing: "0.01em", textTransform: "uppercase" }}>
-            Cheesesteaks<br />
-            <span style={{ color: YELLOW, fontStyle: "italic" }}>Done the Philly way.</span>
-          </h1>
-          <p className="text-xl md:text-2xl mt-8 max-w-2xl mx-auto fade-up-d1" style={{ color: "rgba(255,248,231,0.95)", lineHeight: 1.5 }}>{content.hero.subheading}</p>
-          <div className="mt-10 flex flex-wrap gap-4 justify-center fade-up-d2">
-            <a href={content.hero.ctaLink} className={display.className + " px-9 py-4 text-lg transition-transform hover:scale-105 shadow-2xl"} style={{ backgroundColor: YELLOW, color: TEXT, borderRadius: "6px", letterSpacing: "0.04em" }}>{content.hero.ctaText}</a>
-            <a href="#menu" className={display.className + " px-9 py-4 text-lg transition-all hover:bg-white/10"} style={{ border: `3px solid ${CREAM}`, color: CREAM, borderRadius: "6px", letterSpacing: "0.04em" }}>SEE THE MENU</a>
+          <div className="md:col-span-5 bounce-in-d1 float">
+            <div className="clay overflow-hidden aspect-square bg-cover bg-center" style={{ backgroundImage: `url("${content.hero.image}")`, borderRadius: "48px" }} />
+            <div className="clay-sm mt-5 px-5 py-4 flex items-center gap-3" style={{ backgroundColor: SUN, borderRadius: "20px" }}>
+              <span className={display.className} style={{ fontSize: "1.8rem", color: INK }}>$13</span>
+              <div>
+                <p className={display.className} style={{ fontSize: "0.95rem", color: INK, letterSpacing: "0.04em" }}>THE CLASSIC</p>
+                <p className="text-xs font-semibold" style={{ color: TEXT_SOFT }}>Amoroso roll · ribeye · provolone</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16" style={{ backgroundColor: YELLOW, color: TEXT }}>
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:items-center md:justify-around gap-6 text-center md:text-left">
+      {/* STORY — clay pill stat band */}
+      <section className="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {[
-            { num: "100%", label: "Real Ribeye" },
-            { num: "Amoroso", label: "Style Rolls" },
-            { num: "6 Days", label: "Open Tue–Sun" },
-            { num: "$13", label: "The Classic" },
+            { n: "100%", l: "Real Ribeye", c: PINK },
+            { n: "Amoroso", l: "Style Rolls", c: SAGE },
+            { n: "Tue-Sun", l: "6 Days Open", c: SUN },
+            { n: "South", l: "Philly Native", c: PINK_DEEP },
           ].map((s, i) => (
-            <div key={i}>
-              <p className={display.className} style={{ fontSize: "2.5rem", lineHeight: 1, color: RED_DEEP, letterSpacing: "0.01em" }}>{s.num}</p>
-              <p className="text-sm font-bold uppercase mt-1 tracking-widest">{s.label}</p>
+            <div key={i} className="clay-sm p-7 text-center" style={{ backgroundColor: s.c, borderRadius: "32px" }}>
+              <p className={display.className} style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: INK, letterSpacing: "0.02em", lineHeight: 1 }}>{s.n}</p>
+              <p className="mt-2 text-xs font-bold uppercase tracking-widest" style={{ color: INK }}>{s.l}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
-        <p className={display.className} style={{ fontSize: "1.25rem", color: RED, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>The Story</p>
-        <h2 className={display.className} style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)", color: TEXT, lineHeight: 1.0, letterSpacing: "0.01em" }}>{content.about.heading.toUpperCase()}</h2>
-        <div className="mt-10 space-y-6 text-lg leading-relaxed" style={{ color: TEXT_MUTED }}>
-          {content.about.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+      {/* MENU — portfolio grid claymorphic cards */}
+      <section id="menu" className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div className="text-center mb-14">
+          <p className={display.className} style={{ fontSize: "1rem", color: PINK_DEEP, letterSpacing: "0.3em" }}>★ THE MENU ★</p>
+          <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: INK, lineHeight: 0.95, letterSpacing: "0.01em", marginTop: "1rem" }}>EVERYTHING'S<br />WORTH ORDERING.</h2>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {content.services.map((s, i) => {
+            const color = [PINK, SAGE, SUN, PINK_DEEP, SAGE_DEEP, CLAY_BG_DEEP][i % 6];
+            return (
+              <div key={i} className="clay p-8" style={{ backgroundColor: color, borderRadius: "36px" }}>
+                <div className="flex items-baseline justify-between mb-5">
+                  <span className={display.className} style={{ fontSize: "0.85rem", color: INK, letterSpacing: "0.15em", opacity: 0.7 }}>0{i + 1}.</span>
+                  {s.price && <span className={display.className} style={{ fontSize: "1.5rem", color: INK, letterSpacing: "0.01em" }}>{s.price}</span>}
+                </div>
+                <h3 className={display.className} style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.85rem)", color: INK, lineHeight: 1.05, letterSpacing: "0.01em" }}>{s.title.toUpperCase()}</h3>
+                <p className="mt-4 text-sm leading-relaxed font-medium" style={{ color: INK, opacity: 0.85 }}>{s.description}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      <section id="menu" className="py-20 md:py-28" style={{ backgroundColor: TEXT, color: CREAM }}>
-        <div className="max-w-6xl mx-auto px-6">
+      {/* REVIEWS */}
+      <section className="py-20 md:py-28" style={{ backgroundColor: CLAY_BG_DEEP }}>
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="text-center mb-14">
-            <p className={display.className} style={{ fontSize: "1.25rem", color: YELLOW, letterSpacing: "0.1em" }}>THE MENU</p>
-            <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: CREAM, lineHeight: 1.0, marginTop: "0.5rem", letterSpacing: "0.01em" }}>EVERYTHING'S WORTH ORDERING.</h2>
+            <p className={display.className} style={{ fontSize: "1rem", color: PINK_DEEP, letterSpacing: "0.3em" }}>★ WHAT THEY SAY ★</p>
+            <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: INK, lineHeight: 0.95, letterSpacing: "0.01em", marginTop: "1rem" }}>59 PEOPLE<br />CAN'T BE WRONG.</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {content.services.map((s, i) => (
-              <div key={i} className="p-7 transition-transform hover:scale-[1.03]" style={{ backgroundColor: CREAM, color: TEXT, border: `4px solid ${YELLOW}`, borderRadius: "6px" }}>
-                <div className="flex items-baseline justify-between gap-4 mb-3">
-                  <h3 className={display.className} style={{ fontSize: "1.65rem", color: RED, letterSpacing: "0.01em" }}>{s.title.toUpperCase()}</h3>
-                  {s.price && <span className={display.className} style={{ fontSize: "1.4rem", color: TEXT }}>{s.price}</span>}
-                </div>
-                <p className="text-sm leading-relaxed" style={{ color: TEXT_MUTED }}>{s.description}</p>
+          <div className="grid md:grid-cols-3 gap-7">
+            {content.reviews.map((r, i) => (
+              <div key={i} className="clay p-8" style={{ backgroundColor: CLAY_BG, borderRadius: "32px" }}>
+                <div className="flex gap-1 mb-4 text-lg" style={{ color: PINK_DEEP }}>{Array.from({ length: r.rating || 5 }).map((_, j) => <span key={j}>★</span>)}</div>
+                <p className="text-base leading-relaxed font-medium" style={{ color: INK }}>&ldquo;{r.text}&rdquo;</p>
+                <p className={display.className + " mt-6 text-base"} style={{ color: SAGE_DEEP, letterSpacing: "0.05em" }}>— {r.name.toUpperCase()}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-28">
-        <div className="text-center mb-14">
-          <p className={display.className} style={{ fontSize: "1.25rem", color: RED, letterSpacing: "0.1em" }}>THE BLOCK SAYS</p>
-          <h2 className={display.className} style={{ fontSize: "clamp(2.25rem, 6vw, 4rem)", color: TEXT, lineHeight: 1.0, marginTop: "0.5rem", letterSpacing: "0.01em" }}>59 PEOPLE CAN'T BE WRONG.</h2>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {content.reviews.map((r, i) => (
-            <div key={i} className="p-7" style={{ backgroundColor: "white", border: `3px solid ${RED}`, borderRadius: "6px" }}>
-              <div className="flex gap-1 mb-3 text-lg" style={{ color: YELLOW, WebkitTextStroke: `0.5px ${RED}` }}>
-                {Array.from({ length: r.rating || 5 }).map((_, j) => <span key={j}>★</span>)}
-              </div>
-              <p className="text-base leading-relaxed font-medium" style={{ color: TEXT }}>"{r.text}"</p>
-              <p className={display.className + " mt-5 text-base"} style={{ color: RED, letterSpacing: "0.04em" }}>— {r.name.toUpperCase()}</p>
+      {/* VISIT */}
+      <section id="visit" className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div className="clay grid md:grid-cols-12 gap-10 p-8 md:p-12" style={{ backgroundColor: CLAY_BG, borderRadius: "48px" }}>
+          <div className="md:col-span-5">
+            <p className={display.className} style={{ fontSize: "1rem", color: PINK_DEEP, letterSpacing: "0.3em" }}>★ FIND US ★</p>
+            <h2 className={display.className} style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: INK, lineHeight: 0.95, letterSpacing: "0.01em", marginTop: "1rem" }}>2600 W<br />VICTORY BLVD.</h2>
+            <p className="mt-6 text-base font-medium" style={{ color: TEXT_SOFT }}>{content.contact.address}</p>
+            <a href={phoneTel} className={display.className + " block mt-4 transition-opacity hover:opacity-70"} style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)", color: PINK_DEEP, letterSpacing: "0.01em", lineHeight: 1 }}>{content.contact.phone}</a>
+            <div className="clay-inset mt-8 p-5" style={{ backgroundColor: CLAY_BG, borderRadius: "24px" }}>
+              {Object.entries(content.contact.hours).map(([day, time]) => (
+                <div key={day} className="flex justify-between py-2.5 text-sm border-b" style={{ borderColor: `${INK}10` }}>
+                  <span className={display.className} style={{ color: INK, letterSpacing: "0.06em", fontSize: "0.85rem" }}>{day.toUpperCase()}</span>
+                  <span className="font-bold" style={{ color: time === "Closed" ? `${TEXT_SOFT}AA` : SAGE_DEEP }}>{String(time)}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="visit" className="py-20 md:py-28" style={{ backgroundColor: RED, color: CREAM, borderTop: `6px solid ${YELLOW}`, borderBottom: `6px solid ${YELLOW}` }}>
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <p className={display.className} style={{ fontSize: "1.25rem", color: YELLOW, letterSpacing: "0.1em" }}>FIND US</p>
-            <h2 className={display.className} style={{ fontSize: "clamp(2.5rem, 6vw, 4rem)", color: CREAM, lineHeight: 1.0, marginTop: "0.5rem", letterSpacing: "0.01em" }}>2600 W VICTORY BLVD.</h2>
-            <p className="mt-6 text-lg" style={{ color: "rgba(255,248,231,0.9)" }}>{content.contact.address}</p>
-            <a href={phoneTel} className={display.className + " block mt-3 text-4xl transition-opacity hover:opacity-80"} style={{ color: YELLOW }}>{content.contact.phone}</a>
-            <table className="mt-10 w-full text-base">
-              <tbody>
-                {Object.entries(content.contact.hours).map(([day, time]) => (
-                  <tr key={day} style={{ borderBottom: `1px solid rgba(255,248,231,0.25)` }}>
-                    <td className={display.className + " py-3.5"} style={{ color: CREAM, letterSpacing: "0.02em" }}>{day.toUpperCase()}</td>
-                    <td className="py-3.5 text-right font-bold" style={{ color: YELLOW }}>{String(time)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
-          <div className="overflow-hidden shadow-2xl" style={{ minHeight: "440px", border: `4px solid ${YELLOW}`, borderRadius: "6px" }}>
-            <iframe title="Philly On The Block Location" width="100%" height="100%" loading="lazy" style={{ border: 0, minHeight: "440px" }} referrerPolicy="no-referrer-when-downgrade" src={mapUrl} />
+          <div className="md:col-span-7 clay-inset overflow-hidden" style={{ borderRadius: "32px", minHeight: "520px", backgroundColor: CLAY_BG }}>
+            <iframe title="Philly On The Block" width="100%" height="100%" loading="lazy" style={{ border: 0, minHeight: "520px" }} referrerPolicy="no-referrer-when-downgrade" src={mapUrl} />
           </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-6 py-20 md:py-28 text-center">
-        <h3 className={display.className} style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", color: TEXT, lineHeight: 1.0, letterSpacing: "0.01em" }}>HUNGRY?<br /><span style={{ color: RED }}>WE GOT YOU.</span></h3>
-        <a href={phoneTel} className={display.className + " inline-block mt-10 px-12 py-5 text-2xl transition-transform hover:scale-105 shadow-2xl"} style={{ backgroundColor: YELLOW, color: TEXT, borderRadius: "6px", letterSpacing: "0.02em" }}>{content.contact.phone}</a>
+      {/* CTA */}
+      <section className="max-w-5xl mx-auto px-6 md:px-10 py-20 md:py-28">
+        <div className="clay p-12 md:p-20 text-center" style={{ backgroundColor: PINK_DEEP, borderRadius: "48px", color: "#fff" }}>
+          <h3 className={display.className} style={{ fontSize: "clamp(2.5rem, 8vw, 5.5rem)", lineHeight: 0.95, letterSpacing: "0.01em" }}>HUNGRY?<br /><span style={{ color: SUN }}>WE GOT YOU.</span></h3>
+          <a href={phoneTel} className={display.className + " clay-btn inline-block mt-10 px-12 py-5 text-2xl"} style={{ backgroundColor: SUN, color: INK, borderRadius: "999px", letterSpacing: "0.02em" }}>{content.contact.phone}</a>
+        </div>
       </section>
 
-      <footer style={{ backgroundColor: TEXT, color: CREAM, borderTop: `6px solid ${RED}` }}>
-        <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-sm">
-          <div>
-            <p className={display.className} style={{ fontSize: "1.6rem", color: CREAM, letterSpacing: "0.04em" }}>PHILLY <span style={{ color: YELLOW }}>ON THE BLOCK</span></p>
-            <p className="mt-2" style={{ color: "rgba(255,248,231,0.7)" }}>{content.contact.address}</p>
-            <p className="mt-1"><a href={phoneTel} style={{ color: YELLOW }} className="hover:underline">{content.contact.phone}</a></p>
-          </div>
-          <div className="text-xs uppercase tracking-widest" style={{ color: "rgba(255,248,231,0.6)" }}>© {new Date().getFullYear()} Philly On The Block</div>
+      <footer className="py-12" style={{ backgroundColor: CLAY_BG }}>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
+          <p className={display.className} style={{ fontSize: "1.4rem", color: PINK_DEEP, letterSpacing: "0.04em" }}>PHILLY ON <span style={{ color: SAGE_DEEP }}>THE BLOCK</span></p>
+          <p style={{ color: TEXT_SOFT }}>{content.contact.address}</p>
+          <p className={display.className} style={{ fontSize: "0.75rem", color: TEXT_SOFT, letterSpacing: "0.2em" }}>© {new Date().getFullYear()}</p>
         </div>
       </footer>
     </main>
